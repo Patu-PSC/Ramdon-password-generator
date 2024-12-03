@@ -1,9 +1,7 @@
-import random#PARTH
+ndimport random
 import string
 
-
 def generate_password(length, use_uppercase=True, use_lowercase=True, use_digits=True, use_special_chars=True):
-    
     char_pool = ""
     
     if use_uppercase:
@@ -14,26 +12,29 @@ def generate_password(length, use_uppercase=True, use_lowercase=True, use_digits
         char_pool += string.digits
     if use_special_chars:
         char_pool += string.punctuation
-
     
     if not char_pool:
         return "Error: At least one character type must be selected!"
-
     
     password = ''.join(random.choice(char_pool) for i in range(length))
     return password
 
-
 def main():
-    print("Welcome to the Random Password Generator😅!")
+    print("---Welcome to the Random Password Generator😅---")
     
+    while True:
+        length = int(input("Enter the length of the password : "))
+        
+        if length < 4:
+            print("Invalid input! Password length must be at least 4 characters. Please try again.")
+            continue
+        else:
+            break
     
-    length = int(input("Enter the length of the password:- "))
-    use_uppercase = input("Include uppercase letters? (y/n):- ").lower() == 'y'
-    use_lowercase = input("Include lowercase letters? (y/n):- ").lower() == 'y'
-    use_digits = input("Include digits? (y/n):- ").lower() == 'y'
+    use_uppercase = input("Include uppercase letters? (y/n): ").lower() == 'y'
+    use_lowercase = input("Include lowercase letters? (y/n): ").lower() == 'y'
+    use_digits = input("Include digits? (y/n): ").lower() == 'y'
     use_special_chars = input("Include special characters? (y/n): ").lower() == 'y'
-
     
     password = generate_password(length, use_uppercase, use_lowercase, use_digits, use_special_chars)
     
