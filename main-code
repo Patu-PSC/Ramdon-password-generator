@@ -6,7 +6,7 @@ def generate_password(l):
     password = ''.join(random.choice(characters) for _ in range(l))
     return password
 
-print("Welcome to the Random Password Generator😁!")
+print("Welcome to the Random Password Generator😑!")
 
 while True:
     try:
